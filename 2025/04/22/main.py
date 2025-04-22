@@ -45,4 +45,8 @@ def get_memory_usage():
 large_list = [i for i in range(1000000)]
 
 # проверяем кол-ва объектов, отслеживаемых сборщиком
-print('кол-во до ссборки:', gc.get_count())
+print('кол-во до сборки:', gc.get_count())
+# 
+print()
+# 
+print()
