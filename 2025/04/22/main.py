@@ -46,7 +46,19 @@ large_list = [i for i in range(1000000)]
 
 # проверяем кол-ва объектов, отслеживаемых сборщиком
 print('кол-во до сборки:', gc.get_count())
-# 
-print()
-# 
-print()
+
+# Проверяем использование памяти до сборки
+memory_before = get_memory_usage() 
+print(f'Использование памяти до сборки: {memory_before:.2f} MB')
+
+del large_list
+
+# Запускаем принудительно сборщик
+print('кол-во после сборки:', gc.get_count())
+
+memory_after = get_memory_usage()
+print(f'Использование памяти после сборки: {memory_after:.2f} MB')
+
+# Вычисляем освобожденную память
+feed_memory = memory_before - memory_after 
+print(f'Использование памяти до сборки: {feed_memory:.2f} MB')
